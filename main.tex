@@ -66,11 +66,11 @@
 \documentclass[journal]{IEEEtran}
 \usepackage{blindtext}
 \usepackage{graphicx}
-\usepackage{textgreek}
-\usepackage[font=small,labelfont=bf]{caption}
-\usepackage{dirtytalk}
+% \usepackage{textgreek}
+\usepackage[font=small]{caption}
+% \usepackage{dirtytalk}
 
-\usepackage{titlesec}
+% \usepackage{titlesec}
 % Some very useful LaTeX packages include:
 % (uncomment the ones you want to load)
 
@@ -167,7 +167,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage[cmex10]{amsmath}
+\usepackage{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics. If using
 % it, be sure to load this package with the cmex10 option to ensure that
@@ -283,7 +283,7 @@
 
 
 % *** FLOAT PACKAGES ***
-%
+\usepackage{float}
 %\usepackage{fixltx2e}
 % fixltx2e, the successor to the earlier fix2col.sty, was written by
 % Frank Mittelbach and David Carlisle. This package corrects a few problems
@@ -386,8 +386,8 @@
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
-\titleformat{\section}
-  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+% \titleformat{\section}
+%   {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
 \begin{document}
 %
 % paper title
@@ -409,17 +409,10 @@
 % was not built to handle multiple paragraphs
 %
 
-\author {Abhishek Paudel\textsuperscript{1}, Brihat Ratna Bajracharya\textsuperscript{2}, Miran Ghimire\textsuperscript{3}, Nabin Bhattarai\textsuperscript{4}, Daya Sagar Baral\textsuperscript{5}
-
-
+\author
+{Abhishek Paudel, Brihat Ratna Bajracharya, Miran Ghimire, Nabin Bhattarai, Daya Sagar Baral\\
 Department of Electronics and Computer Engineering, Pulchowk Campus,\\
 Institute of Engineering, Tribhuvan University, Nepal
-\\
-\\  \textsuperscript{1} 070bct502@ioe.edu.np
-\\  \textsuperscript{2} 070bct513@ioe.edu.np
-\\  \textsuperscript{3} 070bct521@ioe.edu.np
-\\  \textsuperscript{4} 070bct522@ioe.edu.np
-\\  \textsuperscript{5} dsb@ioe.edu.np
 }
         % stops a space
 % \thanks{M. Shell is with the Department
@@ -573,20 +566,21 @@ $P(x|C_{k}$ is the likelihood which is the conditional probability of attributes
 $P(x)$ is called evidence \\
 $k$ is used to denote the class label \\
 Naive Bayes makes the independence assumption, so that \ref{eq:1} can be written as:\\
-\begin{align}
-\begin{split}
 \begin{equation}\label{eq:naive}
-P(C_{k}|x) = argmax \frac{(P(C_{k}) * P(x_1|C_{k}) * P(x_2|C_{k})*.....* (P(x_n|C_{k})} { P(x)} \\
-\approx  (P(C_{k}) * P(x_1|C_{k}) * P(x_2|C_{k})*.....* (P(x_n|C_{k})
-\end{equation}
-\end{split}
-\end{align}
+\begin{aligned}
 
+P(C_{k}|x) 
+ & = argmax \frac{(P(C_{k}) * P(x_1|C_{k}) * P(x_2|C_{k})*...* (P(x_n|C_{k})} { P(x)}
+ \approx  (P(C_{k}) * P(x_1|C_{k}) * P(x_2|C_{k})*...* (P(x_n|C_{k})
+
+\end{aligned}
+
+\end{equation}
 which is the required equation of Naive Bayes used for the classification of text.
 
 \paragraph{Additive Smoothing}
 
-In statistics, additive smoothing \cite{additive}, also called Laplace smoothing is a technique used to smooth categorical data. Give an observation $x = (x_1,x_2,\cdots,x_d)$ from a multinomial distribution with N trials and parameter vector $\theta = (\theta_1,\theta_2,\cdots,\theta_d)$, a smoothed version of data given the estimator:\\
+In statistics, additive smoothing, also called Laplace smoothing is a technique used to smooth categorical data. Give an observation $x = (x_1,x_2,\cdots,x_d)$ from a multinomial distribution with N trials and parameter vector $\theta = (\theta_1,\theta_2,\cdots,\theta_d)$, a smoothed version of data given the estimator:\\
 \begin{equation}\label{eq:smooth}
   \theta_i = \frac{x_i + \alpha}{N+ \alpha d}
 \end{equation}
@@ -603,7 +597,7 @@ which is the final equation used in the research for the classification of user'
 
 \paragraph{Overfitting}
 
-In order to reduce the overfitting and finding the best model for the classifier, $5^{th}$-fold cross validation, technique has been used. The major advantage of this method is that all observations are used for both training and testing and each observation is used for testing exactly once \cite{cross}.
+In order to reduce the overfitting and finding the best model for the classifier, $5^{th}$-fold cross validation, technique has been used. The major advantage of this method is that all observations are used for both training and testing and each observation is used for testing exactly once.
 
 \paragraph{Optimization}
 
@@ -640,9 +634,14 @@ Suppose $\mu_x$ be the average rating of the user x and $R_{x,i}$ represents a r
 \end{equation}
 \paragraph{Computing similar users:} In order to compute similar users, two metrics has been used: similarity based on the rating matrix of the user and similarity based on the personality. In both of the cases, the similar users are computed with the help of cosine similarity after the normalization of the rating.
 Mathematically,
-Suppose $r_a = [r_a1,r_a2,\cdots,r_an]$ be the user rating matrix of the user a and  $r_b = [r_b1,r_b2,\cdots,r_bn]$ be the user rating matrix of user b, then cosine similarity between user a and b can be obtained as:
+Suppose $r_a = [r_a1,r_a2,\cdots,r_an]$ be the user rating matrix of the user a and  $r_b = [r_b1,r_b2,\cdots,r_bn]$ be the user rating matrix of user b, then cosine similarity between user a and b can be obtained as:\\
 \begin{equation}
-  similarity_{a,b} = \frac{r_a1*r_b1 + r_a2*r_b2 +\cdots+ r_an*r_bn}{\sqrt{{r_a1}^2+{r_a2}^2+\cdots+{r_an}^2} * \sqrt{{r_b1}^2+{r_b2}^2+\cdots+{r_bn}^2} }
+\begin{aligned}
+
+  similarity_{a,b} 
+  & = \frac{r_a1*r_b1 + r_a2*r_b2 +\cdots+ r_an*r_bn}{\sqrt{{r_a1}^2+{r_a2}^2+\cdots+{r_an}^2} * \sqrt{{r_b1}^2+{r_b2}^2+\cdots+{r_bn}^2} }
+
+\end{aligned}
 \end{equation}
 Similarly, users with similar personality are computed with the help of personality vector.\hfill
 \paragraph{Rating prediction:} A rating for user $x$ on music $i$ with the help of $N$ neighbor is computed by taking the weighted average rating of the neighbors.
@@ -669,8 +668,11 @@ Matrix factorization \cite{latent} involves in a factorization of a matrix to fi
 \subsection{Evaluation of Naive Bayes Model}
 
 The followings tables show the confusion matrix of Naive Bayes for Big Five Personality classes:
-\begin{table}[!ht]
+
+\FloatBarrier
+\begin{table}[H]
 \centering
+\caption{Confusion Matrix of Openness class}
 \begin{tabular}{ |c|c|c| }
  \hline
  N =50 & Predicted:Yes & Predicted: No \\
@@ -680,12 +682,14 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&8 & 27 \\
  \hline
 \end{tabular}
-\caption{Confusion Matrix of Openness class}
+
 
 \end{table}
-
-\begin{table}[!ht]
+\FloatBarrier
+\begin{table}[H]
 \centering
+\caption{Confusion Matrix of Conscientiousness class}
+
 \begin{tabular}{ |c|c|c| }
  \hline
  N =50 & Predicted:Yes & Predicted: No \\
@@ -695,11 +699,12 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&4 & 22 \\
  \hline
 \end{tabular}
-\caption{Confusion Matrix of Conscientiousness class}
 \end{table}
-
-\begin{table}[!ht]
+\FloatBarrier
+\begin{table}[H]
 \centering
+ \caption{Confusion Matrix of Extraversion class}
+
 \begin{tabular}{ |c|c|c| }
  \hline
  N =50 & Predicted:Yes & Predicted: No \\
@@ -709,11 +714,12 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&12 & 7 \\
  \hline
 \end{tabular}
- \caption{Confusion Matrix of Extraversion class}
 \end{table}
-
-\begin{table}[!ht]
+\FloatBarrier
+\begin{table}[H]
 \centering
+ \caption{Confusion Matrix of Agreeableness class}
+
 \begin{tabular}{ |c|c|c| }
  \hline
  N =50 & Predicted:Yes & Predicted: No \\
@@ -723,11 +729,12 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&13 & 14 \\
  \hline
 \end{tabular}
- \caption{Confusion Matrix of Agreeableness class}
 \end{table}
-
-\begin{table}[!ht]
+\FloatBarrier
+\begin{table}[H]
 \centering
+ \caption{Confusion Matrix of Neuroticism class}
+
 \begin{tabular}{ |c|c|c| }
  \hline
  N =50 & Predicted:Yes & Predicted: No \\
@@ -737,35 +744,39 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&15 & 5 \\
  \hline
 \end{tabular}
- \caption{Confusion Matrix of Neuroticism class}
 \end{table}
 
 The following table shows f-measure of the Naive Bayes model for Big Five Personality classes:
-\begin{table}[!ht]
+\FloatBarrier
+\begin{table}[H]
 \centering
+ \caption{f-measures for Big Five Personality classes}
+
 \begin{tabular}{ |c|c| }
  \hline
  Class & f-measure \\
  \hline
- Openness&0.00\\
+ Openness&0.2308\\
  \hline
- Conscientiousness&0.00 \\
+ Conscientiousness&0.4865 \\
  \hline
- Extraversion&0.00 \\
+ Extraversion&0.6349 \\
  \hline
- Agreeableness&0.00 \\
+ Agreeableness&0.5000 \\
  \hline
- Neuroticism&0.00 \\
+ Neuroticism&0.6154 \\
  \hline
 \end{tabular}
- \caption{f-measures for Big Five Personality classes}
 \end{table}
 
 \subsection{Evaluation of Recommendation System}
 
 The following table shows RMSE of various recommendation models:\\
-  \begin{table}[!ht]
+\FloatBarrier
+  \begin{table}[H]
     \centering
+        \caption{RMSE of Recommendation System Models}
+
     \begin{tabular}{| l | c |}
       \hline
       {\bf Recommendation Model} & {\bf RMSE}\\
@@ -787,42 +798,41 @@ The following table shows RMSE of various recommendation models:\\
       Matrix Factorization & 0.88\\
       \hline
     \end{tabular}
-    \caption{RMSE of Recommendation System Models}
   \end{table}
 
 The following figures show effects of change in number of nearest neighborhood in the different collaborative filtering models.\\
-
-\begin{figure}[!ht]
+\FloatBarrier
+\begin{figure}[H]
   \centering
     \includegraphics[width=3.5in,height=5.25in,clip,keepaspectratio]{rmse_cf.png}
     \caption{RMSE of Collaborative Filtering with User Rating Matrix}
 \end{figure}\\
-
-\begin{figure}[!ht]
+\FloatBarrier
+\begin{figure}[H]
   \centering
     \includegraphics[width=3.5in,height=5.25in,clip,keepaspectratio]{rmse_cf_personality.png}
     \caption{RMSE of Collaborative Filtering with similarity in terms of Personality Matrix}
 \end{figure}\\
-
-\begin{figure}[!h]
+\FloatBarrier
+\begin{figure}[H]
   \centering
     \includegraphics[width=3.5in,height=5.25in,clip,keepaspectratio]{rmse_cf_global.png}
     \caption{RMSE of Collaborative Filtering combined with Global Baseline with User Rating Matrix}
 \end{figure}\\
-
-\begin{figure}[!h]
+\FloatBarrier
+\begin{figure}[H]
   \centering
     \includegraphics[width=3.5in,height=5.25in,clip,keepaspectratio]{rmse_cf_global_personality.png}
     \caption{RMSE of Collaborative Filtering combined with Global Baseline with User Personality Matrix}
 \end{figure}\\
-
-\begin{figure}[!h]
+\FloatBarrier
+\begin{figure}[H]
   \centering
     \includegraphics[width=3.5in,height=5.25in,clip,keepaspectratio]{rmse_cf_average.png}
     \caption{RMSE of Collaborative Filtering with User Rating and Personality Matrix}
 \end{figure}\\
-
-\begin{figure}[!h]
+\FloatBarrier
+\begin{figure}[H]
   \centering
     \includegraphics[width=3.5in,height=5.25in,clip,keepaspectratio]{rmse_cf_combined_average.png}
     \caption{RMSE of Collaborative Filtering with User Rating and Personality Matrix combined with Global Baseline}
@@ -832,8 +842,8 @@ The following figures show effects of change in number of nearest neighborhood i
 
 \subsubsection{Latent Factor}
 The following figure shows the RMSE of matrix factorization when number of iterations is varied:
-
-\begin{figure}[!ht]
+\FloatBarrier
+\begin{figure}[H]
 \centering
 \includegraphics[width=3.5in,height=5.25in,clip,keepaspectratio]{rmse_step.png}
 \caption{RMSE of Matrix Factorization vs Number of Iterations}
@@ -841,7 +851,8 @@ The following figure shows the RMSE of matrix factorization when number of itera
 \end{figure}\\
 
 The following figure shows the RMSE of matrix factorization when k is varied with number of iterations is fixed at 1000:
-\begin{figure}[!ht]
+\FloatBarrier
+\begin{figure}[H]
 \centering
 \includegraphics[width=3.5in,height=5.25in,clip,keepaspectratio]{rmse_k.png}
 \caption{RMSE of Matrix Factorization vs Number of Latent Factors}
