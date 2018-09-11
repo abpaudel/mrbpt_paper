@@ -37,12 +37,6 @@ Kathmandu, Nepal \\
 \textit{Institute of Engineering, Tribhuvan University}\\
 Kathmandu, Nepal \\
 070bct522@ioe.edu.np}
-\and
-\IEEEauthorblockN{5\textsuperscript{th} Daya Sagar Baral}
-\IEEEauthorblockA{\textit{Department of Electronics \& Computer Engineering} \\
-\textit{Institute of Engineering, Tribhuvan University}\\
-Kathmandu, Nepal \\
-dsb@ioe.edu.np}
 
 }
 
@@ -102,7 +96,7 @@ Data preprocessing included converting the status updates into vector representa
 
 \subsubsection{Classifier Model}
 Naive Bayes classifier was used for the classification of the status update text. It was of multinomial type since the frequency of occurrence of each feature in the feature vector is important and distribution of the feature is in discrete form.
-In order to understand how Naive Bayes classifier \cite{naive} work, briefly understanding the concept of Bayes' rule is important.\\
+In order to understand how Naive Bayes classifier work, briefly understanding the concept of Bayes' rule is important.\\
 Given the set of features $(x_1,x_2,x_3,\cdots, x_n)$, \\
 Mathematically Bayes theorem can be written as:\\
 \begin{equation}\label{eq:1}
@@ -137,7 +131,7 @@ When $\alpha = 1 $ in \ref{eq:smooth}, it's called add one Laplace smoothing whi
 
 \paragraph{Underfitting}
 
-Underfitting \cite{naive} in the Naive Bayes Classifier, can occur if the probabilities result from conditional and prior are very small, in this case in order to prevent the model from underfitting resulting from the multiplication of the very small terms, log can be used in \ref{eq:naive}, after which final equation becomes:
+Underfitting in the Naive Bayes Classifier, can occur if the probabilities result from conditional and prior are very small, in this case in order to prevent the model from underfitting resulting from the multiplication of the very small terms, log can be used in \ref{eq:naive}, after which final equation becomes:
 
 \begin{equation}
 P(C_k|x) = \log p(C_k) + \sum_{i=1}^{k} \log(x|C_k)
@@ -150,7 +144,7 @@ In order to reduce the overfitting and finding the best model for the classifier
 
 \paragraph{Optimization}
 
-Naive Bayes classifier, as seen in \ref{eq:naive}, classifies features set into a class via the multiplication of the prior and conditional probability which requires their computation each time the classifier tries to classify the feature into class. In order to solve this problem, conditional and prior probability is precomputed and stored in ``HashTable'' \cite{naive}, where the conditional probability of each feature set is stored, which can be easily be retrieved and used for the classification.
+Naive Bayes classifier, as seen in \ref{eq:naive}, classifies features set into a class via the multiplication of the prior and conditional probability which requires their computation each time the classifier tries to classify the feature into class. In order to solve this problem, conditional and prior probability is precomputed and stored in ``HashTable'', where the conditional probability of each feature set is stored, which can be easily be retrieved and used for the classification.
 
 \subsubsection{Classifier Output}
 The final output of the Naive Bayes classifier are the probabilities of the input status update text to fall under each of the five classes of personality traits.
@@ -211,7 +205,7 @@ $baseline_{y,i}$ is the baseline estimate on music $i$ by user $y$ \\
 $s_{x,y}$ is the similarity between user $x$ and $y$ \\
 $N$ is the total neighbors used for the recommendation
 \subsubsection{Matrix Factorization}
-Matrix factorization \cite{latent} involves in a factorization of a matrix to find out tow or more matrices such that when factors are multiplied together, original matrix in obtained. In recommender system, the matrix factorization is employed to predict the missing ratings such that the values would be consistent with the existing rating in the matrix. The intuition behind using matrix factorization, is that it is assumed there should be some latent features that determine how a user rates a music. For example two users would give high rating to a certain music if they both like the singer of the music or if the music is of same genre. Hence, if these latent features can be discovered, we should be able to predict a rating with respect to a certain user and a certain music, because the features associated with the user should match with the features associated with the music.
+Matrix factorization involves in a factorization of a matrix to find out tow or more matrices such that when factors are multiplied together, original matrix in obtained. In recommender system, the matrix factorization is employed to predict the missing ratings such that the values would be consistent with the existing rating in the matrix. The intuition behind using matrix factorization, is that it is assumed there should be some latent features that determine how a user rates a music. For example two users would give high rating to a certain music if they both like the singer of the music or if the music is of same genre. Hence, if these latent features can be discovered, we should be able to predict a rating with respect to a certain user and a certain music, because the features associated with the user should match with the features associated with the music.
 
 \section{Result and Analysis}
 \subsection{Evaluation of Naive Bayes Model}
@@ -593,31 +587,6 @@ P. Resnick and H. R. Vairan. (1997). Recommender Systems. \textit{Communications
 
 \bibitem{nunes}
 Nunes, M.A.S.N. (2008). \textit{Recommender system based on personality traits}
-\bibitem{kd}
-G. Parsa. (2017, July). Document Classification. Retrieved from \url{http://www.kdnuggets.com/2015/01/text-analysis-101-document-classification.html}
-
-\bibitem{naive}
-Naive Bayes text classification. (2017, July). Retrieved from \url{https://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html}
-
-\bibitem{demographic}
-L. Safoury and A. Salah. (2013). Exploiting user demographic attributes for solving cold-start problem in recommender system.\textit{Lecture Notes on Software Engineering}, 1(3), 303
-\bibitem{recommend}
-A. Tejal. (2015). A Survey on Recommendation System. \textit{International Journal of Innovative Research in Advanced Engineering(IJIRA)}.
-\bibitem{rmain}
-F. O. Isinkaye, Y. O. Folajimi and B. A. Ojokoh. (2015). Recommendation Systems: Principles, methods and evaluation \textit{Egyptian Informatics Journal}.
-\bibitem{latent}
-Non-negative matrix factorization. (2017, July). Retrieved from \url{https://www.slideshare.net/BenjaminBengfort/non-negative-matrix-factorization}
-\bibitem{manning}
-C. Manning. (2017, June). Stanford NLP - Standford NLP Group. Retrieved from \url{https://nlp.standford.edu/manning}
-
-\bibitem{traits}
-Studying the big five personality traits-UK Essays. (2017. January). Retrieved from \url{https://ukessays.com/essays/psychology/studying-the-big-five-personality-traits.php}
-
-\bibitem{eval}
-D. Alexander. (2009). Collaborative Filtering and Recommender Systems
-
-\bibitem{api}
-Facebook Graph API. (2017, July). Retrieved from \url{https://developers.facebook.com/docs/graph-api}
 
 \end{thebibliography}
 
